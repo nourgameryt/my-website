@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BY XRUN - مستقل</title>
+    <link rel="stylesheet" href="styels.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+
+    <header>
+        <div class="oasis">
+            <nav>
+                <div class="oasis-logo">
+                    <img src="logo.png" alt="oasis">
+                    <span>الواحة رول بلاي</span>
+                </div>
+                <ul class="urls">
+                    <li><a href="index.html"><span>الرئيسية</span></a></li>
+                    <li><a href="#"><span>قريبًا...</span></a></li>
+                    <li><a href="https://discord.gg/qasis" target="_blank"><span>دخول الديسكورد الرئيسي</span></a></li>
+                    <li><a href="application.html" target="_blank"><span>التقديمات</span></a></li>
+                    <li><a href="store.html" target="_blank"><span> متجر</span></a></li>
+                </ul>
+            </nav>
+            <div class="menu" id="menu-toggle">
+                <span>☰</span>
+            </div>
+        </nav>
+        <!-- زر القائمة المنسدلة -->
+        <div class="menu" id="menu-toggle">
+            <span>☰</span>
+        </div>
+
+    </header>
+
+    <div class="sidebar">
+        <a href="#" onclick="filterProducts('all')">إظهار الجميع</a>
+        <a href="#" onclick="filterProducts('cars')">المركبات</a>
+        <a href="#" onclick="filterProducts('packges')">البكجات</a>
+        <a href="#" onclick="filterProducts('bigcars')">الحمولات</a>
+        <a href="#" onclick="filterProducts('money')">العملات</a>
+        <a href="#" onclick="filterProducts('houses')">منازل</a>
+        <a href="#" onclick="filterProducts('familys')">خدمات العائلات</a>
+        <a href="#" onclick="filterProducts('exclusives')">الحصريات</a>
+        <a href="#" onclick="filterProducts('factions')">الفاكشنات</a>
+        <a href="#" onclick="filterProducts('cards')">الراعي</a>
+        <a href="#" onclick="filterProducts('id')">الايديهات</a>
+    </div>
+
+    <main>
+        <div class="product-grid">
+            <div class="product-card" data-product="cars">
+                <img src="car1.png" alt="ID">
+                <h2>سيارة بي ام دبليو x3</h5>
+                <h5>سرعة السيارة تتخطي 260</h4>
+                <h5>65 EGP - 5M كرديت</p>
+                <button onclick="openPurchaseForm('سيارة تويوتا لاند كروز')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="bigcars">
+                <img src="car2.png" alt="ID">
+                <h2>سيارة تويوتا تاندرا</h2>
+                <h5>سيــارة عــمل جميع الوظائف</h5>
+                <h5>سرعة السيارة تتخطي 240</h4>
+                <h5>40 EGP - 3M كريدت </p>
+                <button onclick="openPurchaseForm('سيارة تويوتا تاندرا')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="cars">
+                <img src="car9.png" alt="ID">
+                <h2>سيارة BMW</h2>
+                <h5>سيارة مميزة </h5>
+                <h5>سرعة السيارة تتخطي 350</h4>
+                <h5>80 EGP - 7M كريدت  </p>
+                <button onclick="openPurchaseForm('سيارة BMW')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="cars">
+                <img src="car10.png" alt="ID">
+                <h2>سيارة GTR</h2>
+                <h5>سيارة مميزة </h5>
+                <h5>سرعة السيارة تتخطي 380</h4>
+                <h5>85 EGP - 10M كريدت </p>
+                <button onclick="openPurchaseForm('سيارة GTR')">التوجه للشراء</button>
+            </div>
+
+
+            <div class="product-card" data-product="factions">
+                <img src="car13.png" alt="ID">
+                <h2>سيارة GMC</h2>
+                <h5>سيارة مميزة للعصابات</h5>
+                <h5>سرعة السيارة تتخطي 250</h4>
+                <h5>20 EGP -  2M كريدت  </p>
+                <button onclick="openPurchaseForm('سيارة GMC')">التوجه للشراء</button>
+            </div>
+
+            <div class="product-card" data-product="cars">
+                <img src="car12.png" alt="ID">
+                <h2>سيارة ماكلارن</h2>
+                <h5>سيارة مميزة للسابقات</h5>
+                <h5>سرعة السيارة تتخطي 400</h4>
+                <h5>90 EGP - 13M كريدت </p>
+                <button onclick="openPurchaseForm('سيارة ماكلارن')">التوجه للشراء</button>
+            </div>
+
+            <div class="product-card" data-product="factions">
+                <img src="car11.png" alt="ID">
+                <h2>سيارة مرسيدس</h2>
+                <h5>سيارة مميزة للعصابات</h5>
+                <h5>سرعة السيارة تتخطي 330</h4>
+                <h5>50 EGP - 6M كرديت </p>
+                <button onclick="openPurchaseForm('سيارة مرسيدس')">التوجه للشراء</button>
+            </div>
+
+            <div class="product-card" data-product="cars">
+                <img src="car3.png" alt="ID">
+                <h2>سيارة تويوتا سوبرا</h2>
+                <h5>سيارة نادرة</h5>
+                <h5>سرعة السيارة تتخطي 320</h5>
+                <h5>240 EGP - 7M كريدت</p>
+                <button onclick="openPurchaseForm('سيارة تويوتا سوبرا')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="cars">
+                <img src="car4.png" alt="ID">
+                <h2>سيارة دودج شارجر</h2>
+                <h5>سيارة مميزة</h5>
+                <h5>سرعة السيارة تتخطي 275</h5>
+                <h5>65 EGP - 5M كرديت</p>
+                <button onclick="openPurchaseForm('سيارة دودج شارجر')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="cars">
+                <img src="car5.png" alt="ID">
+                <h2>سيارة بي ام دبليو</h2>
+                <h5>سيارة مميزة</h5>
+                <h5>سرعة السيارة تتخطي 290</h5>
+                <h5>50 EGP - 6M كرديت </p>
+                <button onclick="openPurchaseForm('سيارة بي ام دبليو')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="bigcars">
+                <img src="car6.png" alt="ID">
+                <h2>سيارة تيسلا سايبر تراك</h2>
+                <h5>عمل لجميع الوظائف</h5>
+                <h5>سرعة السيارة تتخطي 245</h5>
+                <h5>65 EGP - 5M كريدت</p>
+                <button onclick="openPurchaseForm('سيارة تيسلا سايبر تراك')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="cars">
+                <img src="car7.png" alt="ID">
+                <h2>سيارة كونسق</h2>
+                <h5>سيارة مميزة</h5>
+                <h5>سرعة السيارة تتخطي 310</h5>
+                <h5>60 EGP -  4.5M كريدت </p>
+                <button onclick="openPurchaseForm('سيارة كونسق')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="cars">
+                <img src="car8.png" alt="ID">
+                <h2>سيارة Porsche Cayenne</h2>
+                <h5>سيارة مميزة</h5>
+                <h5>سرعة السيارة تتخطي 310</h5>
+                <h5>100 EGP - 6M كريدت </p>
+                <button onclick="openPurchaseForm('سيارة كونسق')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="packges">
+                <img src="Package1.png" alt="ID">
+                <h2>باكج العظمة</h2>
+                <h5>سيارة تويوتا سوبرا</h5>
+                <h5>5,000,000 مليون</h5>
+                <h5>رشاش يوزي</h5>
+                <h5>200 EGP - 6M كريدت</p>
+                <button onclick="openPurchaseForm('باكج العظمة')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="packges">
+                <img src="Package3.png" alt="ID">
+                <h2>باكج الملوك</h2>
+                <h5>7,500,000 مليون</h5>
+                <h5>رشاش يوزي</h5>
+                <h5>شوتجن</h5>
+                <h5>300 EGP - 7M كريدت </p>
+                <button onclick="openPurchaseForm('باكج الملوك')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="packges">
+                <img src="Package2.png" alt="ID">
+                <h2>البكج الذهبي</h2>
+                <h5>2,500,000 مليون</h5>
+                <h5>رشاش اي كي</h5>
+                <h5>رشاش يوزي</h5>
+                <h5>220 EGP - 6.5M كريدت</p>
+                <button onclick="openPurchaseForm('الكبج الذهبي')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="packges">
+                <img src="Package4.png" alt="ID">
+                <h2>البكج الالماسي</h2>
+                <h5>سيارة تويوتا لاند كروز</h5>
+                <h5>2,500,000 مليون</h5>
+                <h5>رشاش اي كي</h5>
+                <h5>رشاش يوزي</h5>
+                <h5>تيسلا سايبر تراك</h5>
+                <h5>600 EGP - 8M كريدت </p>
+                <button onclick="openPurchaseForm('البكج الالماسي')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="money">
+                <img src="money.png" alt="ID">
+                <h2>بكج عملات 1</h2>
+                <h5>5,000,000 مليون داخل الخادم</h5>
+                <h5>20 EGP - 2M كريدت</p>
+                <button onclick="openPurchaseForm('بكج عملات 1')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="money">
+                <img src="money.png" alt="ID">
+                <h2>بكج عملات 2</h2>
+                <h5>10,000,000 مليون داخل الخادم</h5>
+                <h5>35 EGP- 3M كريدت </p>
+                <button onclick="openPurchaseForm('بكج عملات 2')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="money">
+                <img src="money.png" alt="ID">
+                <h2>بكج عملات 3</h2>
+                <h5>20,000,000 مليون داخل الخادم</h5>
+                <h5>55 EGP - 4M كريدت</p>
+                <button onclick="openPurchaseForm('بكج عملات 3')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="exclusives">
+                <img src="Package5.png" alt="ID">
+                <h2>باكج البداية</h2>
+                <h5>2,500,000 مليون داخل الخادم</h5>
+                <h5>سيارة تويوتا تاندرا</h5>
+                <h5>120 EGP - 3.5M كريدت</p>
+                <button onclick="openPurchaseForm('باكج البداية')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="familys">
+                <img src="familyc.png" alt="ID">
+                <h2>بكج سيارات عائلة</h2>
+                <h5>سيارة تويوتا سوبرا</h5>
+                <h5>2 سيارة دودج شارجر</h5>
+                <h5>سيارة بي ام دبليو</h5>
+                <h5>450 EGP - 15M كريدت </p>
+                <button onclick="openPurchaseForm('بكج سيارات عائلة')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="familys">
+                <img src="familym.png" alt="ID">
+                <h2>بكج اسلحة عائلة</h2>
+                <h5>20 رشاش يوزي</h5>
+                <h5>20 مسدسات كولت</h5>
+                <h5>50 EGP - 4M كريدت</p>
+                <button onclick="openPurchaseForm('بكج اسلحة عائلة')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="familys">
+                <img src="createf.png" alt="ID">
+                <h2>فاكشن عائلة</h2>
+                <h5>فاكشن خاص للعائلة</h5>
+                <h5>سكن خاص للعائلة</h5>
+                <h5>400 EGP - 8M كريدت </p>
+                <button onclick="openPurchaseForm('فاكشن عائلة')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="houses">
+                <img src="familyh.png" alt="ID">
+                <h2>منزل خاص عائلة</h2>
+                <h5>3d منزل</h5>
+                <h5>من اختيارك بالكامل</h5>
+                <h5>جميع التصاميم عليك وليس علينا</h5>
+                <h5>300 EGP - 7M كريدت </p>
+                <button onclick="openPurchaseForm('منزل خاص عائلة')">التوجه للشراء</button>
+            </div>
+            <div class="product-card" data-product="factions">
+                <img src="Gang.png" alt="ID">
+                <h2>فاكشن عصابة</h2>
+                <h5>يمكنك عمل جميع انواع الاجرام</h5>
+                <h5>قتل الناس الاحتلالات و السرقة و التهديد ولك حق في الاسبوع ب سناريو</h5>
+                <h5>اختيار الاسم و الصور و الاسكنات و السيارات من اختيارك الخاص</h5>
+                <h5>150 EGP - 4M كريدت </p>
+                <button onclick="openPurchaseForm('فاكشن عصابة')">التوجه للشراء</button>
+            </div>
+
+            <div class="product-card" data-product="cards">
+                <img src="silver.png" alt="ID">
+                <h2>راعي فضي</h2>
+                <h5> هدايا يوميا ب اموال و شارة خاصة</h5>
+                <h5>100 EGP - 2M كريدت </p>
+                <button onclick="openPurchaseForm('راعي فضي')">التوجه للشراء</button>
+            </div>
+
+            <div class="product-card" data-product="cards">
+                <img src="gold.png" alt="ID">
+                <h2>راعي ذهبي</h2>
+                <h5> هدايا يوميا ب اموال و شارة خاصة منع اسقاط السلاح</h5>
+                <h5>150 EGP - 3M كريدت </p>
+                <button onclick="openPurchaseForm('راعي ذهبي')">التوجه للشراء</button>
+            </div>
+
+            <div class="product-card" data-product="cards">
+                <img src="diamond.png" alt="ID">
+                <h2>راعي دايموند</h2>
+                <h5> هدايا يوميا ب اموال و شارة خاصة منع اسقاط السلاح ومميزات في عبور الميناء و القطاعات الحكومية</h5>
+                <h5>300 EGP - 5M كريدت </p>
+                <button onclick="openPurchaseForm('راعي دايموند')">التوجه للشراء</button>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card" data-product="id">
+                    <img src="car1.png" alt="ID">
+                    <h2>ايدي 1</h5>
+                    <h5>مميز وله خصائص مميزة</h4>
+                    <h5>1500EGP - 900M كرديت</p>
+                    <button onclick="openPurchaseForm('سيارة تويوتا لاند كروز')">التوجه للشراء</button>
+                </div>
+
+        </div>
+    </main>
+
+    <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closePurchaseForm()">&times;</span>
+        <h2>للشراء توجه ديسكورد وافتح تيكت</h2>
+        <p>قم بفتح تيكت على ديسكورد للتواصل معنا وإتمام عملية الشراء.</p>
+        <a href="https://discord.com/channels/1014876354145161236/1245286968275763281" target="_blank">
+            <button type="button">فتح ديسكورد</button>
+        </a>
+    </div>
+</div>
+
+<script>
+    function closePurchaseForm() {
+        // كود لإغلاق اللوحة
+        document.getElementById('purchaseModal').style.display = 'none';
+    }
+</script>
+<div id="purchaseModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closePurchaseForm()">&times;</span>
+        <h2>للشراء توجه ديسكورد وافتح تيكت</h2>
+        <form id="purchaseForm">
+            <label for="discordId">إيدي الديسكورد:</label>
+            <input type="text" id="discordId" name="discordId" required>
+
+            <label for="accountId">إيدي الحساب:</label>
+            <input type="text" id="accountId" name="accountId" required>
+
+            <label for="product">المنتج:</label>
+            <input type="text" id="product" name="product" readonly>
+
+            <button type="submit">إرسال</button>
+        </form>
+        <a href="https://discord.com/channels/1014876354145161236/1245286968275763281" target="_blank">
+            <button type="button">فتح ديسكورد</button>
+        </a>
+    </div>
+</div>
+    <script>
+        function openPurchaseForm(productName) {
+            document.getElementById('product').value = productName;
+            document.getElementById('purchaseModal').style.display = "block";
+        }
+
+        function closePurchaseForm() {
+            document.getElementById('purchaseModal').style.display = "none";
+        }
+
+        function filterProducts(category) {
+            const allProducts = document.querySelectorAll('.product-card');
+            if (category === 'all') {
+                allProducts.forEach(product => product.style.display = 'block');
+            } else {
+                allProducts.forEach(product => {
+                    if (product.getAttribute('data-product') === category) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+        }
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.shiftKey) {
+                const forbiddenCodes = {
+                    'KeyT': true,
+                    'KeyH': true,
+                    'KeyS': true,
+                    'KeyU': true,
+                    'KeyC': true,
+                    'KeyN': true
+                };
+
+                if (e.code in forbiddenCodes) {
+                    e.preventDefault();
+                }
+            }
+
+            if (e.code === "F12" || (e.ctrlKey && (e.code === 'KeyI' || e.code === 'KeyJ' || e.code === 'KeyU'))) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+        });
+
+        (function() {
+            let devToolsOpen = false;
+
+            const threshold = 160;
+            const checkDevTools = function() {
+                // التحقق فقط من الفرق بين الأبعاد الداخلية والخارجية للنافذة
+                if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+                    devToolsOpen = true;
+                } else {
+                    devToolsOpen = false; // إذا كانت الأبعاد طبيعية، نعيد الحالة إلى مغلقة
+                }
+            };
+
+            setInterval(function() {
+                checkDevTools();
+
+                if (devToolsOpen) {
+                    // إذا تم اكتشاف أدوات المطور، يتم إغلاق الصفحة بشكل فوري
+                    window.location.href = 'about:blank'; // يمكن استبداله بـ window.close() إذا كانت الصفحة نافذة منبثقة
+                }
+            }, 1000);
+        })();
+        document.querySelector('#menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.oasis nav .urls').classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

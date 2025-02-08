@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" href="logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Jomhuria&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Protest+Strike&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nav.css">
+    <title>BY XRUN - مستقل</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: normal;            
+            background-image: url(/IMG/BG.png);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* يجعل العنصر في منتصف الشاشة */
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 600px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #fff;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .question input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+
+        .submit-btn {
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #444;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #555;
+        }
+
+        #responseMessage {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main class="main-content">
+        <div class="form-container">
+            <h1>نموذج تقديم الإدارة</h1>
+            <div class="question" id="questionContainer"></div>
+            <button class="submit-btn" id="nextButton">التالي →</button>
+            <button class="submit-btn" id="submitButton" style="display: none;">إرسال الإجابات والتقديم</button>
+            <div id="responseMessage"></div>
+        </div>
+    </main>
+
+    <script>
+        const questions = [
+            "ما هو اسمك؟",
+            "ما هو عمرك؟",
+            "أيدي الديسكورد الخاص بك:"
+        ];
+
+        let currentQuestion = 0;
+        const responses = [];
+
+        function showQuestion() {
+            const questionContainer = document.getElementById('questionContainer');
+            questionContainer.innerHTML = ` 
+                <label for="response">${questions[currentQuestion]}</label>
+                <input type="text" id="response" placeholder="الإجابة هنا">
+            `;
+        }
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            const response = document.getElementById('response').value.trim();
+            if (response === "") {
+                alert("يرجى إدخال إجابة قبل الانتقال للسؤال التالي.");
+                return;
+            }
+
+            responses.push(response);
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                // بعد إكمال جميع الإجابات، يظهر زر التقديم
+                document.getElementById('nextButton').style.display = 'none';
+                document.getElementById('submitButton').style.display = 'inline-block';
+            }
+        });
+
+        document.getElementById('submitButton').addEventListener('click', () => {
+            // بعد الضغط على زر التقديم، يتم إرسال الردود عبر Webhook ثم توجيه المستخدم
+            sendResponsesToWebhook(responses);
+            alert("تم إكمال عملية التحقق . سوف يتم توجيهك للتقديم");
+            window.location.href = "https://forms.gle/tzQ4W9kxVEhANeL17"; // استبدل هذا بالرابط الفعلي
+        });
+
+        function sendResponsesToWebhook(data) {
+            const webhookURL = 'https://discord.com/api/webhooks/1311418334050390067/ZysdBGlviHNcWi7oKSjVQcni9rcJvjWbTKH1O04Qk-RJvYqkLZfVnH5xAKbzVL79s1mq';
+
+            const embed = {
+                title: "نموذج تقديم الإدارة",
+                color: 0x1F8B4C,
+                description: "هذه هي الردود من النموذج:",
+                fields: data.map((response, index) => ({
+                    name: questions[index],
+                    value: response,
+                    inline: false
+                })),
+                footer: {
+                    text: "تم تقديم الطلب في " + new Date().toLocaleString(),
+                },
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ embeds: [embed] }),
+            })
+            .then(() => {
+                document.getElementById('responseMessage').innerText = "تم إرسال جميع الإجابات بنجاح!";
+                document.getElementById('responseMessage').style.color = "green";
+            })
+            .catch(() => {
+                document.getElementById('responseMessage').innerText = "حدث خطأ أثناء إرسال الإجابات.";
+                document.getElementById('responseMessage').style.color = "red";
+            });
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                alert("تم إغلاق النموذج بسبب خروجك من الصفحة.");
+                window.close();
+            }
+        });
+
+        showQuestion();
+    </script>
+</body>
+</html>

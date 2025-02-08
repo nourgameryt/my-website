@@ -1,0 +1,11 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Rakkas",serif;font-weight:400;font-style:normal}
+.oasis nav{height:80px;padding:5px 70px;display:flex;align-items:center;justify-content:space-between;background-color:#13141767;font-size:16px}
+.oasis-logo{display:flex;align-items:center;font-size:20px}
+.oasis-logo > img{width:35px;margin-left:20px}
+.oasis nav ul.urls{display:flex;gap:10px;align-items:center;justify-content:flex-end;list-style:none}
+.oasis nav ul li{background-color:#41404048;padding:5px 20px;cursor:pointer;border-radius:2.5px}
+.oasis nav ul li:hover{background:rgba(5,98,229,0.785)}
+.oasis nav ul li a{color:white;text-decoration:none}
+.menu{display:none;cursor:pointer;font-size:30px}
+@media (max-width:768px){.oasis nav ul.urls{display:none;position:absolute;top:80px;left:0;width:100%;background-color:#131417;flex-direction:column;padding:20px;gap:10px}.oasis nav ul.urls.active{display:flex}.menu{display:block}.oasis nav .urls li{padding:12px 0;text-align:center;width:100%}}
+@media (max-width:480px){.oasis-logo{font-size:18px}.oasis nav ul li{padding:12px 0;text-align:center}}

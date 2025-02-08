@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link rel="icon" href="/IMG/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BY XRUN - مستقل</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Jomhuria&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Protest+Strike&family=Sixtyfour+Convergence&display=swap">
+    <style>
+        * {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+        body {
+            background-image: url(/IMG/BG.png);
+            background-size: cover;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e1e1ea6;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1e1e1ead;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(240, 184, 3, 0.616);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            font-size: 24px;
+            color: #f05454;
+            margin-right: 15px;
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #c5a206;
+        }
+
+        .status {
+            background-color: #f05454;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .status.open {
+            background-color: #28a745;
+        }
+
+        footer.custom-footer {
+            background-color: #023697;
+            text-align: center;
+            color: #fff;
+            padding: 15px;
+        }
+
+        footer.custom-footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .highlight-green {
+            color: #f3c705;
+        }
+
+        .highlight-blue {
+            color: #0eb8e2;
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" loop>
+        <source src="/public/MP3/MP3.mp3" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-music');
+            audio.play().catch(function (error) {
+                console.error('لم يتم تشغيل الموسيقى تلقائيًا:', error);
+            });
+        });
+    </script>
+
+    <div class="container">
+        <!-- Cards -->
+        <div class="card" data-id="الدعم الفني" data-form="form.html">
+            <div class="card-content">
+                <i class="fas fa-headset card-icon"></i>
+                <span class="card-title">تقديم الدعم الفني</span>
+            </div>
+            <span class="status">مغلق</span>
+        </div>
+
+        <div class="card" data-id="تقديم طاقم الديسكورد" data-form="form_discord.html">
+            <div class="card-content">
+                <i class="fas fa-gamepad card-icon"></i>
+                <span class="card-title">تقديم طاقم الديسكورد</span>
+            </div>
+            <span class="status">مغلق</span>
+        </div>
+
+        <div class="card" data-id="تقديم الهئية العامة" data-form="form2.html">
+            <div class="card-content">
+                <i class="fas fa-user-tie card-icon"></i>
+                <span class="card-title">تقديم  الفاكشنات</span>
+            </div>
+            <span class="status">مغلق</span>
+        </div>
+
+        <div class="card" data-id="تقديم شارة التوثيق" data-form="form_verification.html">
+            <div class="card-content">
+                <i class="fas fa-certificate card-icon"></i>
+                <span class="card-title">تقديم شارة التوثيق</span>
+            </div>
+            <span class="status">مغلق</span>
+        </div>
+
+        <div class="card" data-id="تقديم يوتيوبر" data-form="form_youtuber.html">
+            <div class="card-content">
+                <i class="fas fa-video card-icon"></i>
+                <span class="card-title">تقديم اليوتيوبر</span>
+            </div>
+            <span class="status">مغلق</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch(`applicationStatus.json?timestamp=${new Date().getTime()}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateStatuses(data);
+                })
+                .catch(error => console.error('Error fetching JSON:', error));
+
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const formPage = card.getAttribute('data-form');
+                    const statusElement = card.querySelector('.status');
+                    const status = statusElement.textContent;
+
+                    if (status === 'مفتوح') {
+                        window.location.href = formPage;
+                    }
+                });
+            });
+        });
+
+        function updateStatuses(statusMap) {
+            document.querySelectorAll('.card').forEach(card => {
+                const cardId = card.getAttribute('data-id');
+                const statusElement = card.querySelector('.status');
+                const status = statusMap[cardId] || 'مغلق';
+
+                if (status === 'مفتوح') {
+                    statusElement.textContent = 'مفتوح';
+                    statusElement.classList.add('open');
+                } else {
+                    statusElement.textContent = 'مغلق';
+                }
+            });
+        }
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.shiftKey) {
+                const forbiddenCodes = {
+                    'KeyT': true,
+                    'KeyH': true,
+                    'KeyS': true,
+                    'KeyU': true,
+                    'KeyC': true,
+                    'KeyN': true
+                };
+
+                if (e.code in forbiddenCodes) {
+                    e.preventDefault();
+                }
+            }
+
+            if (e.code === "F12" || (e.ctrlKey && (e.code === 'KeyI' || e.code === 'KeyJ' || e.code === 'KeyU'))) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+        });
+
+        (function() {
+            let devToolsOpen = false;
+
+            const threshold = 160;
+            const checkDevTools = function() {
+                // التحقق فقط من الفرق بين الأبعاد الداخلية والخارجية للنافذة
+                if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+                    devToolsOpen = true;
+                } else {
+                    devToolsOpen = false; // إذا كانت الأبعاد طبيعية، نعيد الحالة إلى مغلقة
+                }
+            };
+
+            setInterval(function() {
+                checkDevTools();
+
+                if (devToolsOpen) {
+                    // إذا تم اكتشاف أدوات المطور، يتم إغلاق الصفحة بشكل فوري
+                    window.location.href = 'about:blank'; // يمكن استبداله بـ window.close() إذا كانت الصفحة نافذة منبثقة
+                }
+            }, 1000);
+        })();
+        document.querySelector('.oasis nav .menu').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.oasis nav .urls').classList.toggle('active');
+});
+
+    </script>
+
+    <footer class="custom-footer">
+        <p>جميع الحقوق محفوظة لدى <span class="highlight-green">مدينة الواحة</span> | By developer : <span class="highlight-blue">نور محمد</span></p>
+    </footer>
+</body>
+</html>
